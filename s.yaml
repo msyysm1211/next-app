@@ -31,10 +31,6 @@ services:
             - npm
           args:
             - install
-            - '&'
-            - npm
-            - run
-            - start
       triggers:
         - name: httpTrigger
           type: http
