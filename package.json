@@ -33,6 +33,7 @@
   },
   "repository": "git@github.com:msyysm1211/next-app.git",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "24.0.0",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "eslint": "^9.28.0",
