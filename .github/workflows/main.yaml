@@ -20,10 +20,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version:
-            "22"
+          node-version: "22"
 
-            # Execute build and start commands on ECS
+      # Execute build and start commands on ECS
       - name: Build and Start on Aliyun ECS
         uses: appleboy/ssh-action@v1
         with:
@@ -46,5 +45,3 @@ jobs:
             pm2 stop nextjs-app || true
             # Start or restart Next.js service
             pm2 start npm --name "nextjs-app" -- start
-            # Restart Nginx
-            sudo systemctl restart nginx
