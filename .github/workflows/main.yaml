@@ -22,12 +22,6 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Install Dependencies
-        run: npm install --force
-
-      - name: Build
-        run: npm run build
-
       - name: Deploy to Aliyun Server
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -36,4 +30,31 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           source: ".next/*"
-          target: ${{ secrets.TARGET }}
+          target:
+            ${{ secrets.TARGET }}
+
+            # Execute build and start commands on ECS
+      - name: Build and Start on Aliyun ECS
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
+          script: |
+            # Enter target directory
+            cd /root/next-app
+            # Clone or pull repository
+            git pull origin main
+            # Install PM2 if not present
+            npm install -g pm2
+            # Install dependencies
+            npm install --force
+            # Build Next.js project
+            npm run build
+            # Stop existing process (if any)
+            pm2 stop nextjs-app || true
+            # Start or restart Next.js service
+            pm2 start npm --name "nextjs-app" -- start
+            # Restart Nginx
+            sudo systemctl restart nginx
