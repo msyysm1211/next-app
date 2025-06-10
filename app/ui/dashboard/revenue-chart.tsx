@@ -1,7 +1,6 @@
 import { generateYAxis } from "@/app/lib/utils";
 import { CalendarIcon } from "@heroicons/react/24/outline";
 import { lusitana } from "@/app/ui/fonts";
-import { Revenue } from "@/app/lib/definitions";
 import { fetchRevenue } from "@/app/lib/data";
 
 // This component is representational only.
@@ -21,7 +20,6 @@ export default async function RevenueChart() {
   if (!revenue || revenue.length === 0) {
     return <p className="mt-4 text-gray-400">No data available.</p>;
   }
-
   return (
     <div className="w-full md:col-span-4">
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>

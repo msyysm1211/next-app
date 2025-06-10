@@ -3,30 +3,27 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbo",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@tailwindcss/forms": "^0.5.9",
-    "@vercel/postgres": "^0.10.0",
+    "@tailwindcss/forms": "^0.5.10",
     "autoprefixer": "10.4.20",
     "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
+    "i": "^0.3.7",
     "next": "15.1.1-canary.7",
-    "next-auth": "5.0.0-beta.19",
-    "postcss": "8.4.49",
-    "react": "19.0.0-rc-cd22717c-20241013",
-    "react-dom": "19.0.0-rc-cd22717c-20241013",
-    "tailwindcss": "3.4.15",
-    "typescript": "5.7.2",
+    "next-auth": "5.0.0-beta.25",
+    "pnpm": "^10.12.1",
+    "postcss": "8.5.1",
+    "postgres": "^3.4.6",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.7.3",
     "use-debounce": "^10.0.4",
-    "zod": "^3.23.8"
-  },
-  "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
-    "@types/node": "22.10.1",
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    "zod": "^3.25.17"
   },
   "pnpm": {
     "overrides": {
@@ -34,5 +31,11 @@
       "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
     }
   },
-  "repository": "git@github.com:msyysm1211/next-app.git"
+  "repository": "git@github.com:msyysm1211/next-app.git",
+  "devDependencies": {
+    "@types/node": "24.0.0",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "eslint": "^9.28.0",
+    "eslint-config-next": "15.3.3"
+  }
 }
