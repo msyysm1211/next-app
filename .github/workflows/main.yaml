@@ -20,18 +20,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "22"
-
-      - name: Deploy to Aliyun Server
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          port: 22
-          source: "/*"
-          target:
-            ${{ secrets.TARGET }}
+          node-version:
+            "22"
 
             # Execute build and start commands on ECS
       - name: Build and Start on Aliyun ECS
